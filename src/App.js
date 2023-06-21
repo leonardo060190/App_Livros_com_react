@@ -6,6 +6,7 @@ import MenuSuperior from './components/MenuSuperior';
   return( // tudo que vai no return é o que aparece na aplicação
   <>
   <MenuSuperior />
+  <inclusaoLivros />
   </>
   );
 }
