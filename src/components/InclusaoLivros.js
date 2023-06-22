@@ -1,11 +1,21 @@
 //Componente para incluir livros no banco de dados
 //declaração da função do componente IncluirLivros
+import{useForm} from "react-hook-form";
+//register serve para definir os nomes dos campos do form (validações)
+//handleSubmit, para indicar o método a ser adicionado no evento onSubmit do form
+const {register, handleSubmit} = useForm();
+//metodo chamado ao enviar form onSubmit
+const salvar = (campos) =>{
+    //JSON.stringify() converte um objeto javascript para uma string Json
+    alert(JSON.stringify(campos));
+}
+//form onSubmit ={handleSubmit(salvar)}
 
 const IncluirLivros = () => {
     return ( //aqui é o que vai ser exibido na tela
         <div className="container">
             <div className="fst-italic mt-3">Inclusão</div>
-            <form>
+            <form onSubmit ={handleSubmit(salvar)}>
                 <div className="form-group">
                     <label htmlFor="titulo">Titulo</label>
                     <input type="text" className="form-control" id="titulo" required autoFocus />
