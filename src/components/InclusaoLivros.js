@@ -19,28 +19,28 @@ const salvar = (campos) =>{
             <form onSubmit ={handleSubmit(salvar)}>
                 <div className="form-group">
                     <label htmlFor="titulo">Titulo</label>
-                    <input type="text" className="form-control" id="titulo" required autoFocus />
+                    <input type="text" className="form-control" id="titulo" autoComplete="off" required autoFocus {...register("titulo")} />
                 </div>
                 <div className="form-group mt-2">
                     <label htmlFor="autor">Autor</label>
-                    <input type="text" className="form-control" id="autor" required />
+                    <input type="text" className="form-control" id="autor" autoComplete="off" required  {...register("autor")} />
                 </div>
                 <div className="form-group mt-2">
                     <label htmlFor="foto">URl da foto:</label>
-                    <input type="url" className="form-control" id="foto" required />
+                    <input type="url" className="form-control" id="foto" autoComplete="off" required  {...register("foto")} />
                 </div>
                 <div className="row mt-2">
                     <div className="col-sm-4">
                         <div className="form-group">
                             <label htmlFor="ano">Ano de Publicação</label>
-                            <input type="number" className="form-control" id="ano" required />
+                            <input type="number" className="form-control" id="ano" required  {...register("ano")} />
                         </div>
                     </div>
                 </div>
                 <div className="col-sm-8">
                     <div className="form-group">
                         <label htmlFor="preco">Preço</label>
-                        <input type="number" className="form-control" id="preco" step={0.01} required />
+                        <input type="number" className="form-control" id="preco" step={0.01} required  {...register("preco")} />
                     </div>
                 </div>
                 <input type="submit" className="btn btn-primary mt-3" value="Enviar" />
