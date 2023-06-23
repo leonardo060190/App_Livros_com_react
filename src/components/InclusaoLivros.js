@@ -3,6 +3,8 @@
 import{useForm} from "react-hook-form";
 //register serve para definir os nomes dos campos do form (validações)
 //handleSubmit, para indicar o método a ser adicionado no evento onSubmit do form
+const IncluirLivros = () => {
+
 const {register, handleSubmit} = useForm();
 //metodo chamado ao enviar form onSubmit
 const salvar = (campos) =>{
@@ -11,7 +13,6 @@ const salvar = (campos) =>{
 }
 //form onSubmit ={handleSubmit(salvar)}
 
-const IncluirLivros = () => {
     return ( //aqui é o que vai ser exibido na tela
         <div className="container">
             <div className="fst-italic mt-3">Inclusão</div>
