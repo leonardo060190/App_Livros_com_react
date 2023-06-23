@@ -1,22 +1,22 @@
 //Componente para incluir livros no banco de dados
 //declaração da função do componente IncluirLivros
-import{useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 //register serve para definir os nomes dos campos do form (validações)
 //handleSubmit, para indicar o método a ser adicionado no evento onSubmit do form
 const IncluirLivros = () => {
 
-const {register, handleSubmit} = useForm();
-//metodo chamado ao enviar form onSubmit
-const salvar = (campos) =>{
-    //JSON.stringify() converte um objeto javascript para uma string Json
-    alert(JSON.stringify(campos));
-}
-//form onSubmit ={handleSubmit(salvar)}
+    const { register, handleSubmit } = useForm();
+    //metodo chamado ao enviar form onSubmit
+    const salvar = (campos) => {
+        //JSON.stringify() converte um objeto javascript para uma string Json
+        alert(JSON.stringify(campos));
+    }
+    //form onSubmit ={handleSubmit(salvar)}
 
     return ( //aqui é o que vai ser exibido na tela
         <div className="container">
             <div className="fst-italic mt-3">Inclusão</div>
-            <form onSubmit ={handleSubmit(salvar)}>
+            <form onSubmit={handleSubmit(salvar)}>
                 <div className="form-group">
                     <label htmlFor="titulo">Titulo</label>
                     <input type="text" className="form-control" id="titulo" autoComplete="off" required autoFocus {...register("titulo")} />
@@ -43,9 +43,9 @@ const salvar = (campos) =>{
                         <input type="number" className="form-control" id="preco" step={0.01} required  {...register("preco")} />
                     </div>
                 </div>
-                <input type="submit" className="btn btn-primary mt-3" value="Enviar" />
-                <input type="reset" className="btn btn-danger mt-3 ms-3" value="Limpar" />
-                
+                <input type="submit" className="btn btn-outline-primary mt-3" value="Enviar" />
+                <input type="reset" className="btn btn-outline-danger mt-3 ms-3" value="Limpar" />
+
             </form>
             <div className="alert"></div>
         </div>
