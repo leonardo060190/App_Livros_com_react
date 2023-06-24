@@ -12,13 +12,14 @@ const IncluirLivros = () => {
     //metodo chamado ao enviar form onSubmit
     const salvar = async (campos) => {
         try {
-            const resposta = await api.post("/livros", campos);
+            const resposta = await api.post("livros", campos);
             setAviso("Livro cadastrado com sucesso!");
         } catch (error) {
             setAviso("Erro ao cadastrar livro!");
         }
         //JSON.stringify() converte um objeto javascript para uma string Json
-        alert(JSON.stringify(campos));
+        
+        //alert(JSON.stringify(campos));
     }
     //form onSubmit ={handleSubmit(salvar)}
 
