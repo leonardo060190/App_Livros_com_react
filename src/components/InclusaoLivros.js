@@ -18,7 +18,7 @@ const IncluirLivros = () => {
             setAviso("Erro ao cadastrar livro!");
         }
         //JSON.stringify() converte um objeto javascript para uma string Json
-        
+
         //alert(JSON.stringify(campos));
     }
     //form onSubmit ={handleSubmit(salvar)}
@@ -29,15 +29,15 @@ const IncluirLivros = () => {
             <form onSubmit={handleSubmit(salvar)}>
                 <div className="form-group">
                     <label htmlFor="titulo">Titulo</label>
-                    <input type="text" className="form-control" id="titulo" autoComplete="off" required autoFocus {...register("titulo")} />
+                    <input type="text" className="form-control" id="titulo"  required autoFocus {...register("titulo")} />
                 </div>
                 <div className="form-group mt-2">
                     <label htmlFor="autor">Autor</label>
-                    <input type="text" className="form-control" id="autor" autoComplete="off" required  {...register("autor")} />
+                    <input type="text" className="form-control" id="autor" required  {...register("autor")} />
                 </div>
                 <div className="form-group mt-2">
                     <label htmlFor="foto">URl da foto:</label>
-                    <input type="url" className="form-control" id="foto" autoComplete="off" required  {...register("foto")} />
+                    <input type="url" className="form-control" id="foto" required  {...register("foto")} />
                 </div>
                 <div className="row mt-2">
                     <div className="col-sm-4">
@@ -46,11 +46,12 @@ const IncluirLivros = () => {
                             <input type="number" className="form-control" id="ano" required  {...register("ano")} />
                         </div>
                     </div>
-                </div>
-                <div className="col-sm-8">
-                    <div className="form-group">
-                        <label htmlFor="preco">Preço</label>
-                        <input type="number" className="form-control" id="preco" step={0.01} required  {...register("preco")} />
+
+                    <div className="col-sm-8">
+                        <div className="form-group">
+                            <label htmlFor="preco">Preço R$:</label>
+                            <input type="number" className="form-control" id="preco" step={0.01} required  {...register("preco")} />
+                        </div>
                     </div>
                 </div>
                 <input type="submit" className="btn btn-outline-primary mt-3" value="Enviar" />
