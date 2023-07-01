@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import { Chart } from 'react-google-charts';
-import {api} from "../config_axios";
+import { api } from "../config_axios";
 
 const ResumoLivros = () => {
   const [resumo, setResumo] = useState([]);
@@ -77,4 +77,5 @@ return(
     </div>
 );
 };//fim da função ResumoLivros
+
 export default ResumoLivros;
