@@ -16,7 +16,7 @@ const ItemLista = ({id,titulo,autor,ano,preco,foto,excluirClick,alterarClick}) =
             </td>
             <td class="text-center">
                 <i className="exclui text-danger fw-bold" title="Excluir" onClick={excluirClick}>&#10008;</i>
-                <i className="altera text-sucess fw-bold ms-2" title="Alterar" onClick={alterarClick}>&#36;</i>
+                <i className="altera text-success fw-bold ms-2" title="Alterar" onClick={alterarClick}>&#36;</i>
             </td>
         </tr>
     );

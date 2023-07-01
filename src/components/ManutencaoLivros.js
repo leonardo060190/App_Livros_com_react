@@ -18,9 +18,7 @@ const ManutencaoLivros = () => {
 
 
 //define o método que será executado assim que o componente for renderizado
-useEffect(() => {
-    obterLista();
-},[]);
+
 
 const filtrarLista = async (campos) => {
     try{
@@ -49,22 +47,29 @@ const excluir = async(id,titulo) => {
 }
 
 //alterar os registros
-const alterar = async (id,titulo,index) => {
-    const novoPreco = Number(prompt(`Digite o novo preço do livro: ${titulo}`));
-    if (isNaN(novoPreco)){
+const alterar = async (id,titulo) => {
+    const novoPreco = Number(prompt(`Digite o novo preço do livro ${titulo}`));
+    if (isNaN(novoPreco) || novoPreco <= 0) {
         return;
     }
-    try{
-        
+    try{//captura os erros 
+        //chamando o backend e passando os dados
         await api.put(`livros/${id}`,{preco: novoPreco});
         const livrosAtualizados = [...livros];
-        livrosAtualizados[index].preco = novoPreco;
+        const indiceLivro = livrosAtualizados.findIndex(livro => livro.id === id);
+        livrosAtualizados[indiceLivro].preco = novoPreco;
         setLivros(livrosAtualizados);
     }catch(error){
         alert(`Erro: ..Não foi possível alterar o livro ${titulo}: ${error}`);
     }
-
 }
+
+useEffect(() => {
+    obterLista();
+},[]);
+
+
+
     return (
        <div className="container">
         <div className="row">
