@@ -28,12 +28,6 @@ const MenuSuperior = () => {
           <li className="nav-item">
             <Link to="/resumo_livros" className="nav-link">Resumo de Livros</Link>
           </li>
-          <li className="nav-item">
-            <Link to="/resumo_editoras" className="nav-link">Resumo de Editoras</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/resumo_autores" className="nav-link">Resumo de Autores</Link>
-          </li>
         </ul>
       </div>
     </nav>

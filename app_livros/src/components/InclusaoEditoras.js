@@ -21,11 +21,19 @@ const IncluirEditoras = () => {
         }
 
 
+
         //limpa os campos do formulário para uma nova inclusão
-       // reset({ nome: "", sobrenome: "", data_nascimento: "", sexo: "", telefone: "", descricao: "", foto:"" });
         //JSON.stringify() converte um objeto javascript para uma string Json
         //alert(JSON.stringify(campos));
     }
+
+    function handlePhone(event) {
+        const input = event.target;
+        let phoneNumber = input.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
+        phoneNumber = phoneNumber.replace(/^(\d{2})(\d{4,5})(\d{4})/, "($1) $2-$3"); // Aplica a formatação desejada
+        input.value = phoneNumber; // Atualiza o valor do campo
+    }
+    
     //form onSubmit ={handleSubmit(salvar)}
 
     return ( //aqui é o que vai ser exibido na tela
@@ -65,7 +73,8 @@ const IncluirEditoras = () => {
                         <div className="col-sm-3">
                             <div className="form-group mt-2">
                                 <label htmlFor="telefone">Telefone:</label>
-                                <input type="text" className="form-control" id="telefone" required autoFocus {...register("telefone")} />
+                                <input type="tel" className="form-control" id="telefone" maxLength="15"
+                                    onKeyUp={handlePhone} required autoFocus {...register("telefone")} />
                             </div>
                         </div>
                     </div>

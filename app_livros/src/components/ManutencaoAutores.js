@@ -47,14 +47,14 @@ const ManutencaoAutores = () => {
     }
 
     const alterar = async (id, nome, index) => {
-        const novaAlteracao= (prompt(`Informe a alteração "${nome}"`));
+        const novaAlteracao= (prompt(`Informe o novo Telefone: "${nome}"`));
         if (isNaN(novaAlteracao) || novaAlteracao <= 0) {
             return;
         }
         try {
-            await api.put(`autores/${id}`, { telefone: novaAlteracao, descricao: novaAlteracao, foto: novaAlteracao});
+            await api.put(`autores/${id}`, { telefone: novaAlteracao});
             const autoresAtualizado = [...autores]
-            autoresAtualizado[index].telefone.descricao.foto = novaAlteracao;
+            autoresAtualizado[index].telefone = novaAlteracao;
             setAutores(autoresAtualizado);
         } catch (error) {
             alert(`Erro... Não foi possivel fazer as alterações "${error}"!`);
