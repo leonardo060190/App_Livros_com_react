@@ -43,7 +43,7 @@ const IncluirAutores = () => {
                     <div className="col-sm-6">
                         <div className="form-group">
                             <label htmlFor="nome">Nome:</label>
-                            <input type="text" className="form-control" id="nome" required autoFocus {...register("nome")} />
+                            <input type="text" className="form-control" id="nome" required autoFocus  {...register("nome")} />
                         </div>
                     </div>
                     <div className="col-sm-6">

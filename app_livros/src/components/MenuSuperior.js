@@ -18,7 +18,7 @@ const MenuSuperior = () => {
           <li className={`nav-item dropdown ${dropdownOpen ? "show" : ""}`}>
             <a
               className="nav-link dropdown-toggle"
-              href="#dropdown"
+              href="#menu"
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"

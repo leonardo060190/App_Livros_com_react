@@ -37,7 +37,7 @@ const IncluirEditoras = () => {
     function handleCEP(event) {
         const input = event.target;
         let cep = input.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
-        cep = cep.replace(/^(\d{5})(\d{3})/, "$1-$2"); // Aplica a formatação desejada
+        cep = cep.replace(/^(\d{5})(\d{3})/, "($1)-($2)"); // Aplica a formatação desejada
         input.value = cep; // Atualiza o valor do campo
     }
     
@@ -50,7 +50,7 @@ const IncluirEditoras = () => {
             <form onSubmit={handleSubmit(salvar)}>
                 <div className="form-group">
                     <label htmlFor="nome">Nome:</label>
-                    <input type="text" className="form-control" id="nome" required autoFocus {...register("nome")} />
+                    <input type="text" className="form-control" id="nome" required autoFocus  {...register("nome")} />
                 </div>
                 <div className="row mt-2">
                     <div className="col-sm-8">
