@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
 import { useState } from "react";
+import AutocompleteForm from "./autcompleteForm"
 //register serve para definir os nomes dos campos do form (validações)
 //handleSubmit, para indicar o método a ser adicionado no evento onSubmit do form
 const IncluirEditoras = () => {
