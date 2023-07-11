@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
 import { useState } from "react";
+
 //register serve para definir os nomes dos campos do form (validações)
 //handleSubmit, para indicar o método a ser adicionado no evento onSubmit do form
 const IncluirAutores = () => {
@@ -13,7 +14,7 @@ const IncluirAutores = () => {
     //metodo chamado ao enviar form onSubmit
     const salvar = async (campos) => {
         try {
-            const resposta = await api.post("autores/cadastro", campos);
+            const resposta = await api.post("autores", campos);
             console.log(resposta)
             setAviso("Autor cadastrado com sucesso!");
         } catch (error) {
@@ -32,7 +33,6 @@ const IncluirAutores = () => {
         input.value = phoneNumber; // Atualiza o valor do campo
     }
 
-
     //form onSubmit ={handleSubmit(salvar)}
 
     return ( //aqui é o que vai ser exibido na tela
@@ -49,7 +49,7 @@ const IncluirAutores = () => {
                     <div className="col-sm-6">
                         <div className="form-group">
                             <label htmlFor="sobrenome">Sobrenome:</label>
-                            <input type="text" className="form-control" id="autor" required autoFocus {...register("sobrenome")} />
+                            <input type="text" className="form-control" id="autor" required  {...register("sobrenome")} />
                         </div>
                     </div>
                 </div>
@@ -58,32 +58,31 @@ const IncluirAutores = () => {
                     <div className="col-sm-2">
                         <div className="form-group">
                             <label htmlFor="sexo">Sexo:</label>
-                            <input type="text" className="form-control" id="sexo" required autoFocus {...register("sexo")} />
+                            <input type="text" className="form-control" id="sexo" required  {...register("sexo")} />
                         </div>
                     </div>
                     <div className="col-sm-4">
                         <div className="form-group">
                             <label htmlFor="data_nascimento">Data de Nascimento:</label>
-                            <input type="data" className="form-control" id="data_nascimento" required autoFocus {...register("data_nascimento")} />
+                            <input type="data" className="form-control" id="data_nascimento" required  {...register("data_nascimento")} />
                         </div>
                     </div>
                     <div className="col-sm-4">
                         <div className="form-group">
                             <label htmlFor="telefone">Telefone:</label>
-                            <input type="tel" className="form-control" id="telefone" maxLength="15"
-                                onKeyUp={handlePhone} required autoFocus {...register("telefone")} />
+                            <input type="tel" className="form-control" id="telefone" maxLength="15" onKeyUp={handlePhone} required  {...register("telefone")} />
                         </div>
                     </div>
 
                     <div className="form-group mt-2">
                         <div className="mb-3">
                             <label htmlFor="descricao" class="form-label">Descrição:</label>
-                            <textarea className="form-control" id="descricao" rows="4" requiredautoFocus {...register("descricao")}></textarea>
+                            <textarea className="form-control" id="descricao" rows="4"  {...register("descricao")}></textarea>
                         </div>
                     </div>
                     <div className="form-group mt-2">
                         <label htmlFor="foto">URL da Foto:</label>
-                        <input type="url" className="form-control" id="foto" required  {...register("foto")} />
+                        <input type="url" className="form-control" id="foto"  {...register("foto")} />
                     </div>
 
                 </div>

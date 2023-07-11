@@ -45,6 +45,7 @@ const IncluirLivros = () => {
                     <label htmlFor="titulo">Titulo</label>
                     <input type="text" className="form-control" id="titulo" required autoFocus {...register("titulo")} />
                 </div>
+                
                 <div className="row mt-2">
                     <div className="col-sm-4">
                         <div className="form-group">
@@ -65,10 +66,13 @@ const IncluirLivros = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className="form-group mt-2">
                     <label htmlFor="foto">URl da foto:</label>
-                    <input type="url" className="form-control" id="foto" required {...register("foto")} />
+                    <input type="url" className="form-control" id="foto"  {...register("foto")} />
                 </div>
+
+
                 <input type="submit" className="btn btn-outline-primary mt-3" value="Enviar" />
                 <input type="reset" className="btn btn-outline-danger mt-3 ms-3" value="Limpar" />
 

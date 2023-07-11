@@ -25,7 +25,7 @@ const ManutencaoAutores = () => {
 
     const filtrarLista = async (campos) => {
         try {
-            const lista = await api.get(`Autores/filtro/${campos.palavra}`);
+            const lista = await api.get(`autores/${campos.palavra}`);
             lista.data.length
                 ? setAutores(lista.data)
                 : alert("Não a Autores com a palavra-chave pesquisada...");
@@ -73,7 +73,7 @@ const ManutencaoAutores = () => {
                 <div className="col-sm-5">
                     <form onSubmit={handleSubmit(filtrarLista)}>
                         <div className="input-group mt-3">
-                            <input type="text" className="form-control" placeholder="nome ou sobrenome" required {...register("palavra")} />
+                            <input type="text" className="form-control" placeholder="Pesquisa por Nome" required {...register("palavra")} />
                             <input type="submit" className="btn btn-outline-primary" value="Pesquisar" />
                             <input type="button" className="btn btn-outline-danger" value="Todos" onClick={() => { reset({ palavra: "" }); obterLista(); }} />
                         </div>
@@ -85,13 +85,13 @@ const ManutencaoAutores = () => {
                 <thead>
                     <tr>
                         <th>Cód</th>
-                        <th>nome</th>
-                        <th>sobrenome</th>
-                        <th>data_nascimento</th>
-                        <th>sexo</th>
-                        <th>telefone</th>
-                        <th>descricao</th>
-                        <th>foto</th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Data Nascimento</th>
+                        <th>Sexo</th>
+                        <th>Telefone</th>
+                        <th>Descricao</th>
+                        <th>Foto</th>
                     </tr>
                 </thead>
                 <tbody>

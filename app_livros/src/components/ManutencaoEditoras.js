@@ -25,13 +25,14 @@ const ManutencaoEditoras = () => {
 
     const filtrarLista = async (campos) => {
         try {
-            const lista = await api.get(`editoras/filtro/${campos.palavra}`);
+            const lista = await api.get(`editoras/${campos.palavra}`);
             lista.data.length
                 ? setEditoras(lista.data)
                 : alert("Não a Editoras com a palavra-chave pesquisada...");
         } catch (error) {
             alert(`Erro... Não foi possivel obter os dados!`);
         }
+        
     };
 
     const excluir = async (id, nome) => {
@@ -47,12 +48,12 @@ const ManutencaoEditoras = () => {
     }
 
     const alterar = async (id, nome, index) => {
-        const novoTelefone= (prompt(`Informe o Novo Telefone: "${nome}"`));
+        const novoTelefone = (prompt(`Informe o Novo Telefone: "${nome}"`));
         if (isNaN(novoTelefone) || novoTelefone <= 0) {
             return;
         }
         try {
-            await api.put(`editoras/${id}`, { telefone: novoTelefone});
+            await api.put(`editoras/${id}`, { telefone: novoTelefone });
             const editorasAtualizado = [...editoras]
             editorasAtualizado[index].telefone = novoTelefone;
             setEditoras(editorasAtualizado);
@@ -73,7 +74,7 @@ const ManutencaoEditoras = () => {
                 <div className="col-sm-5">
                     <form onSubmit={handleSubmit(filtrarLista)}>
                         <div className="input-group mt-3">
-                            <input type="text" className="form-control" placeholder="nome ou telefone" required {...register("palavra")} />
+                            <input type="text" className="form-control" placeholder=" Pesquisa por Nome" required {...register("palavra")} />
                             <input type="submit" className="btn btn-outline-primary" value="Pesquisar" />
                             <input type="button" className="btn btn-outline-danger" value="Todos" onClick={() => { reset({ palavra: "" }); obterLista(); }} />
                         </div>
@@ -85,27 +86,31 @@ const ManutencaoEditoras = () => {
                 <thead>
                     <tr>
                         <th>Cód</th>
-                        <th>nome</th>
-                        <th>cidade</th>
-                        <th>estado</th>
-                        <th>telefone</th>
-                        <th>rua</th>
-                        <th>cep</th>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Rua</th>
+                        <th>Número</th>
+                        <th>Cep</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     {editoras.map((editoras, index) => (
-                        <ItemListaEditoras 
+                        <ItemListaEditoras
                             key={editoras.id}
                             id={editoras.id}
                             nome={editoras.nome}
-                            cidade={editoras.cidade}
-                            estado={editoras.estado}
                             telefone={editoras.telefone}
                             rua={editoras.rua}
+                            numero={editoras.numero}
                             cep={editoras.cep}
-                            excluirClick={() => excluir (editoras.id, editoras.nome)} 
-                            alterarClick={() => alterar (editoras.id, editoras.nome, index)}/>
+                            cidade={editoras.cidade}
+                            estado={editoras.estado}
+
+                            excluirClick={() => excluir(editoras.id, editoras.nome)}
+                            alterarClick={() => alterar(editoras.id, editoras.nome, index)} />
                     ))}
                 </tbody>
             </table>

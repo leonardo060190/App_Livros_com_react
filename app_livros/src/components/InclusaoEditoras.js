@@ -3,7 +3,6 @@
 import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
 import { useState } from "react";
-import AutocompleteForm from "./autcompleteForm"
 //register serve para definir os nomes dos campos do form (validações)
 //handleSubmit, para indicar o método a ser adicionado no evento onSubmit do form
 const IncluirEditoras = () => {
@@ -13,7 +12,7 @@ const IncluirEditoras = () => {
     //metodo chamado ao enviar form onSubmit
     const salvar = async (campos) => {
         try {
-            const resposta = await api.post("Editoras/cadastro", campos);
+            const resposta = await api.post("editoras", campos);
             console.log(resposta)
             setAviso("Editora cadastrada com sucesso!");
         } catch (error) {
@@ -34,56 +33,70 @@ const IncluirEditoras = () => {
         phoneNumber = phoneNumber.replace(/^(\d{2})(\d{4,5})(\d{4})/, "($1) $2-$3"); // Aplica a formatação desejada
         input.value = phoneNumber; // Atualiza o valor do campo
     }
-    
+
     function handleCEP(event) {
         const input = event.target;
         let cep = input.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
-        cep = cep.replace(/^(\d{5})(\d{3})/, "($1)-($2)"); // Aplica a formatação desejada
+        cep = cep.replace(/\D/g, '')
+            .replace(/(\d{5})(\d)/, '$1-$2')
+            .replace(/(-\d{3})\d+?$/, '$1'); // Aplica a formatação desejada
         input.value = cep; // Atualiza o valor do campo
     }
-    
-    
+
+
     //form onSubmit ={handleSubmit(salvar)}
 
     return ( //aqui é o que vai ser exibido na tela
         <div className="container">
             <h4 className="fst-italic mt-3">Inclusão de Editoras</h4>
             <form onSubmit={handleSubmit(salvar)}>
-                <div className="form-group">
-                    <label htmlFor="nome">Nome:</label>
-                    <input type="text" className="form-control" id="nome" required autoFocus  {...register("nome")} />
-                </div>
+
                 <div className="row mt-2">
-                    <div className="col-sm-8">
+                    <div className="col-sm-9">
+                        <div className="form-group">
+                            <label htmlFor="nome">Nome:</label>
+                            <input type="text" className="form-control" id="nome" required autoFocus  {...register("nome")} />
+                        </div>
+                    </div>
+                    <div className="col-sm-3">
+                        <div className="form-group ">
+                            <label htmlFor="telefone">Telefone:</label>
+                            <input type="tel" className="form-control" id="telefone" maxLength="15" onKeyUp={handlePhone} required  {...register("telefone")} />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row mt-2">
+                    <div className="col-sm-6">
                         <div className="form-group mt-2">
                             <label htmlFor="rua">Rua:</label>
-                            <input type="text" className="form-control" id="rua" required autoFocus {...register("rua")} />
+                            <input type="text" className="form-control" id="rua" required {...register("rua")} />
+                        </div>
+                    </div>
+                    <div className="col-sm-2">
+                        <div className="form-group mt-2">
+                            <label htmlFor="numero">Número:</label>
+                            <input type="text" className="form-control" id="numero" required {...register("numero")} />
                         </div>
                     </div>
                     <div className="col-sm-4">
                         <div className="form-group mt-2">
                             <label htmlFor="cep">Cep:</label>
-                            <input type="text" className="form-control" id="cep" maxLength={9} onChange={handleCEP} required autoFocus {...register("cep")} />
+                            <input type="text" className="form-control" id="cep" maxLength={9} onChange={handleCEP} required  {...register("cep")} />
                         </div>
                     </div>
+
                     <div className="row mt-2">
-                        <div className="col-sm-5">
-                            <div className="form-group mt-2">
+                        <div className="col-sm-7">
+                            <div className="form-group ">
                                 <label htmlFor="cidade">Cidade:</label>
-                                <input type="text" className="form-control" id="cidade" required autoFocus {...register("cidade")} />
+                                <input type="text" className="form-control" id="cidade" required  {...register("cidade")} />
                             </div>
                         </div>
-                        <div className="col-sm-4">
-                            <div className="form-group mt-2">
+                        <div className="col-sm-5">
+                            <div className="form-group ">
                                 <label htmlFor="estado">Estado:</label>
-                                <input type="text" className="form-control" id="estado" required autoFocus {...register("estado")} />
-                            </div>
-                        </div>
-                        <div className="col-sm-3">
-                            <div className="form-group mt-2">
-                                <label htmlFor="telefone">Telefone:</label>
-                                <input type="tel" className="form-control" id="telefone" maxLength="15"
-                                    onKeyUp={handlePhone} required autoFocus {...register("telefone")} />
+                                <input type="text" className="form-control" id="estado" required  {...register("estado")} />
                             </div>
                         </div>
                     </div>
