@@ -91,6 +91,7 @@ const ManutencaoEditoras = () => {
                         <th>Rua</th>
                         <th>Número</th>
                         <th>Cep</th>
+                        <th>bairro</th>
                         <th>Cidade</th>
                         <th>Estado</th>
 
@@ -106,6 +107,7 @@ const ManutencaoEditoras = () => {
                             rua={editoras.rua}
                             numero={editoras.numero}
                             cep={editoras.cep}
+                            bairro={editoras.bairro}
                             cidade={editoras.cidade}
                             estado={editoras.estado}
 

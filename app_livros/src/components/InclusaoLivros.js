@@ -68,7 +68,7 @@ const IncluirLivros = () => {
                 </div>
 
                 <div className="form-group mt-2">
-                    <label htmlFor="foto">URl da foto:</label>
+                    <label htmlFor="foto">URL da Foto:</label>
                     <input type="url" className="form-control" id="foto"  {...register("foto")} />
                 </div>
 

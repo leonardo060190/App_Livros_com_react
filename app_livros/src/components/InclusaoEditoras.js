@@ -7,7 +7,7 @@ import { useState } from "react";
 //handleSubmit, para indicar o método a ser adicionado no evento onSubmit do form
 const IncluirEditoras = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, setValue } = useForm();
     const [aviso, setAviso] = useState("");
     //metodo chamado ao enviar form onSubmit
     const salvar = async (campos) => {
@@ -34,14 +34,23 @@ const IncluirEditoras = () => {
         input.value = phoneNumber; // Atualiza o valor do campo
     }
 
-    function handleCEP(event) {
-        const input = event.target;
-        let cep = input.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
-        cep = cep.replace(/\D/g, '')
-            .replace(/(\d{5})(\d)/, '$1-$2')
-            .replace(/(-\d{3})\d+?$/, '$1'); // Aplica a formatação desejada
-        input.value = cep; // Atualiza o valor do campo
-    }
+
+    
+    const checkCEP = (e) => {
+
+        const cep = e.target.value.replace(/\D/g, '');
+        console.log(cep);
+
+        fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
+            console.log(data);
+            setValue('rua', data.logradouro);
+            setValue('bairro', data.bairro);
+            setValue('cidade', data.localidade);
+            setValue('estado', data.uf);
+            
+        }).catch((Error) => alert("Cep Incorreto"));
+
+    };
 
 
     //form onSubmit ={handleSubmit(salvar)}
@@ -82,19 +91,25 @@ const IncluirEditoras = () => {
                     <div className="col-sm-4">
                         <div className="form-group mt-2">
                             <label htmlFor="cep">Cep:</label>
-                            <input type="text" className="form-control" id="cep" maxLength={9} onChange={handleCEP} required  {...register("cep")} />
+                            <input type="text" className="form-control" id="cep" maxLength={9} required  {...register("cep")} onBlur={checkCEP} />
                         </div>
                     </div>
 
                     <div className="row mt-2">
-                        <div className="col-sm-7">
-                            <div className="form-group ">
+                        <div className="col-sm-5">
+                            <div className="form-group  mt-2">
+                                <label htmlFor="bairro">Bairro:</label>
+                                <input type="text" className="form-control" id="bairro" required  {...register("bairro")} />
+                            </div>
+                        </div>
+                        <div className="col-sm-5">
+                            <div className="form-group mt-2">
                                 <label htmlFor="cidade">Cidade:</label>
                                 <input type="text" className="form-control" id="cidade" required  {...register("cidade")} />
                             </div>
                         </div>
-                        <div className="col-sm-5">
-                            <div className="form-group ">
+                        <div className="col-sm-2">
+                            <div className="form-group mt-2">
                                 <label htmlFor="estado">Estado:</label>
                                 <input type="text" className="form-control" id="estado" required  {...register("estado")} />
                             </div>

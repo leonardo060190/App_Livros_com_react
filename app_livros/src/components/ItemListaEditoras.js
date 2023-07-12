@@ -1,6 +1,6 @@
 import "../ItemLista.css";
 
-const ItemListaEditoras = ({ id, nome, telefone, rua, numero, cep, cidade, estado, alterarClick, excluirClick }) => {
+const ItemListaEditoras = ({ id, nome, telefone, rua, numero, cep,bairro, cidade, estado, alterarClick, excluirClick }) => {
     return (
         <tr>
             <td>{id}</td>
@@ -9,6 +9,7 @@ const ItemListaEditoras = ({ id, nome, telefone, rua, numero, cep, cidade, estad
             <td>{rua}</td>
             <td>{numero}</td>
             <td>{cep}</td>
+            <td>{bairro}</td>
             <td>{cidade}</td>
             <td>{estado}</td>
 
