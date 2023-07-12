@@ -8,6 +8,10 @@ const MenuSuperior = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const closeDropdown = () => {
+    setDropdownOpen(false);
+  };
+
   return (
     <nav className="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
       <div className="container">
@@ -15,7 +19,10 @@ const MenuSuperior = () => {
           Controle Pessoal de Livros
         </Link>
         <ul className="navbar-nav">
-          <li className={`nav-item dropdown ${dropdownOpen ? "show" : ""}`}>
+          <li
+            className={`nav-item dropdown ${dropdownOpen ? "show" : ""}`}
+            onClick={toggleDropdown}
+          >
             <a
               className="nav-link dropdown-toggle"
               href="#menu"
@@ -23,7 +30,6 @@ const MenuSuperior = () => {
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded={dropdownOpen}
-              onClick={toggleDropdown}
             >
               Menu
             </a>
@@ -31,32 +37,52 @@ const MenuSuperior = () => {
               className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}
               aria-labelledby="navbarDropdown"
             >
-              <h6 class="dropdown-header">Inclusões</h6>
+              <h6 className="dropdown-header">Inclusões</h6>
 
-              <Link to="/" className="dropdown-item">
+              <Link to="/" 
+              className="dropdown-item" 
+              onClick={closeDropdown}>
                 Inclusão de Livros
               </Link>
 
-              <Link to="/autores" className="dropdown-item">
+              <Link
+                to="/autores"
+                className="dropdown-item"
+                onClick={closeDropdown}
+              >
                 Inclusão de Autores
               </Link>
 
-              <Link to="/Editoras" className="dropdown-item">
+              <Link
+                to="/Editoras"
+                className="dropdown-item"
+                onClick={closeDropdown}
+              >
                 Inclusão de Editoras
               </Link>
 
-              <div class="dropdown-divider"></div>
-              <h6 class="dropdown-header">Manutenções</h6>
+              <div className="dropdown-divider"></div>
+              <h6 className="dropdown-header">Manutenções</h6>
 
-              <Link to="/manut" className="dropdown-item">
+              <Link to="/manut" 
+              className="dropdown-item" 
+              onClick={closeDropdown}>
                 Manutenção de Livros
               </Link>
 
-              <Link to="/manut_autores" className="dropdown-item">
+              <Link
+                to="/manut_autores"
+                className="dropdown-item"
+                onClick={closeDropdown}
+              >
                 Manutenção de Autores
               </Link>
 
-              <Link to="/manut_editoras" className="dropdown-item">
+              <Link
+                to="/manut_editoras"
+                className="dropdown-item"
+                onClick={closeDropdown}
+              >
                 Manutenção de Editoras
               </Link>
 
