@@ -21,7 +21,6 @@ const IncluirEditoras = () => {
         }
 
 
-
         //limpa os campos do formulário para uma nova inclusão
         //JSON.stringify() converte um objeto javascript para uma string Json
         //alert(JSON.stringify(campos));
@@ -35,20 +34,21 @@ const IncluirEditoras = () => {
     }
 
 
-    
+    // const para preencher os campos de endereço por uma api externa,
+    //com a utilização do "cep" 
     const checkCEP = (e) => {
 
-        const cep = e.target.value.replace(/\D/g, '');
+        const cep = e.target.value.replace(/\D/g, '');//pega o cep do campo e remove todos os caracteres não numéricos
         console.log(cep);
 
-        fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {
+        fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res => res.json()).then(data => {// api 
             console.log(data);
-            setValue('rua', data.logradouro);
-            setValue('bairro', data.bairro);
-            setValue('cidade', data.localidade);
-            setValue('estado', data.uf);
+            setValue('rua', data.logradouro);//insere no campo o rua que veio da api 
+            setValue('bairro', data.bairro);//insere no campo o bairro que veio da api 
+            setValue('cidade', data.localidade);//insere no campo o cidade que veio da api 
+            setValue('estado', data.uf);// insere no campo o estado que veio da api 
             
-        }).catch((Error) => alert("Cep Incorreto, Por favor Informe o Cep Correto!"));
+        }).catch((Error) => alert("Cep Incorreto, Por favor Informe o Cep Correto!"));// exibe uma mensagen de erro se o cep estiver errado
 
     };
 
