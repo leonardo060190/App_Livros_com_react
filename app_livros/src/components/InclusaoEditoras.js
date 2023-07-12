@@ -48,7 +48,7 @@ const IncluirEditoras = () => {
             setValue('cidade', data.localidade);
             setValue('estado', data.uf);
             
-        }).catch((Error) => alert("Cep Incorreto"));
+        }).catch((Error) => alert("Cep Incorreto, Por favor Informe o Cep Correto!"));
 
     };
 
