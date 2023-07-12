@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
 import { useState } from "react";
+import InputMask from "react-input-mask";
 //register serve para definir os nomes dos campos do form (validações)
 //handleSubmit, para indicar o método a ser adicionado no evento onSubmit do form
 const IncluirEditoras = () => {
@@ -91,7 +92,8 @@ const IncluirEditoras = () => {
                     <div className="col-sm-4">
                         <div className="form-group mt-2">
                             <label htmlFor="cep">Cep:</label>
-                            <input type="text" className="form-control" id="cep" maxLength={9} required  {...register("cep")} onBlur={checkCEP} />
+                            <InputMask type="text" className="form-control" id="cep" mask="99999-999"
+                                maskChar=""  required  {...register("cep")} onBlur={checkCEP} />
                         </div>
                     </div>
 

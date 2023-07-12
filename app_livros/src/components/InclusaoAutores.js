@@ -3,6 +3,8 @@
 import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
 import { useState } from "react";
+import InputMask from "react-input-mask";
+
 
 //register serve para definir os nomes dos campos do form (validações)
 //handleSubmit, para indicar o método a ser adicionado no evento onSubmit do form
@@ -26,6 +28,7 @@ const IncluirAutores = () => {
         //JSON.stringify() converte um objeto javascript para uma string Json
         //alert(JSON.stringify(campos));
     };
+    
     function handlePhone(event) {
         const input = event.target;
         let phoneNumber = input.value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
@@ -64,7 +67,8 @@ const IncluirAutores = () => {
                     <div className="col-sm-4">
                         <div className="form-group">
                             <label htmlFor="data_nascimento">Data de Nascimento:</label>
-                            <input type="data" className="form-control" id="data_nascimento" required  {...register("data_nascimento")} />
+                            <InputMask type="data" mask="99/99/9999"
+                                maskChar="" className="form-control" id="data_nascimento" required  {...register("data_nascimento")} />
                         </div>
                     </div>
                     <div className="col-sm-4">

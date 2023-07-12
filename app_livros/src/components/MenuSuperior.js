@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 const MenuSuperior = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  //A função toggleDropdown é definida para alternar o valor do estado dropdownOpen quando o menu é clicado.
+  // Isso permite abrir e fechar o dropdown.
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  //A função closeDropdown é definida para definir o valor do estado dropdownOpen como false.
+  // Isso é usado para fechar o dropdown quando um item é selecionado.
   const closeDropdown = () => {
     setDropdownOpen(false);
   };
@@ -39,9 +43,9 @@ const MenuSuperior = () => {
             >
               <h6 className="dropdown-header">Inclusões</h6>
 
-              <Link to="/" 
-              className="dropdown-item" 
-              onClick={closeDropdown}>
+              <Link to="/"
+                className="dropdown-item"
+                onClick={closeDropdown}>
                 Inclusão de Livros
               </Link>
 
@@ -64,9 +68,9 @@ const MenuSuperior = () => {
               <div className="dropdown-divider"></div>
               <h6 className="dropdown-header">Manutenções</h6>
 
-              <Link to="/manut" 
-              className="dropdown-item" 
-              onClick={closeDropdown}>
+              <Link to="/manut"
+                className="dropdown-item"
+                onClick={closeDropdown}>
                 Manutenção de Livros
               </Link>
 
@@ -89,7 +93,9 @@ const MenuSuperior = () => {
             </div>
           </li>
           <li className="nav-item">
-            <Link to="/resumo_livros" className="nav-link">
+            <Link to="/resumo_livros"
+              className="nav-link"
+            >
               Resumo de Livros
             </Link>
           </li>
