@@ -18,6 +18,7 @@ const ManutencaoLivros = () => {
             alert(`Erro ... Não foi possivel obter os dados!`);
         };
     }
+    
     //define o método uqe será executado assim que o compomente for renderizado
     useEffect(() => {
         obterLista();

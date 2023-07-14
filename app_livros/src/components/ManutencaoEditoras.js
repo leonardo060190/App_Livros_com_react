@@ -88,6 +88,7 @@ const ManutencaoEditoras = () => {
                         <th>Cód</th>
                         <th>Nome</th>
                         <th>Telefone</th>
+                        <th>Email</th>
                         <th>Rua</th>
                         <th>Número</th>
                         <th>Cep</th>
@@ -104,6 +105,7 @@ const ManutencaoEditoras = () => {
                             id={editoras.id}
                             nome={editoras.nome}
                             telefone={editoras.telefone}
+                            email={editoras.email}
                             rua={editoras.rua}
                             numero={editoras.numero}
                             cep={editoras.cep}

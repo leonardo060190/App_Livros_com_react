@@ -48,7 +48,7 @@ const IncluirEditoras = () => {
             setValue('bairro', data.bairro);//insere no campo o bairro que veio da api 
             setValue('cidade', data.localidade);//insere no campo o cidade que veio da api 
             setValue('estado', data.uf);// insere no campo o estado que veio da api 
-            
+
         }).catch((Error) => alert("Cep Incorreto, Por favor Informe o Cep Correto!"));// exibe uma mensagen de erro se o cep estiver errado
 
     };
@@ -76,6 +76,11 @@ const IncluirEditoras = () => {
                     </div>
                 </div>
 
+                <div className="form-group mt-2">
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" className="form-control" id="email" required {...register("email")} />
+                </div>
+
                 <div className="row mt-2">
                     <div className="col-sm-6">
                         <div className="form-group mt-2">
@@ -93,7 +98,7 @@ const IncluirEditoras = () => {
                         <div className="form-group mt-2">
                             <label htmlFor="cep">Cep:</label>
                             <InputMask type="text" className="form-control" id="cep" mask="99999-999"
-                                maskChar=""  required  {...register("cep")} onBlur={checkCEP} />
+                                maskChar="" required  {...register("cep")} onBlur={checkCEP} />
                         </div>
                     </div>
 

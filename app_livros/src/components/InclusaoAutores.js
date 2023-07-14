@@ -80,7 +80,7 @@ const IncluirAutores = () => {
 
                     <div className="form-group mt-2">
                         <div className="mb-3">
-                            <label htmlFor="descricao" class="form-label">Descrição:</label>
+                            <label htmlFor="descricao" className="form-label">Descrição:</label>
                             <textarea className="form-control" id="descricao" rows="4"  {...register("descricao")}></textarea>
                         </div>
                     </div>

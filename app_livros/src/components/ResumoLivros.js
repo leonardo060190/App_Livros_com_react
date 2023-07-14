@@ -10,7 +10,7 @@ const ResumoLivros = () => {
     useEffect(() => {
         const obterDados = async () => {
             try {
-                const dadosResumo = await api.get("/livros/dados/resumo");
+                const dadosResumo = await api.get("/livros/dados");
                 setResumo(dadosResumo.data);
 
                 const dadosGrafico = await api.get("/livros/dados/grafico");

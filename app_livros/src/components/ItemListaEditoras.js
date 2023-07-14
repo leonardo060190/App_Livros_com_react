@@ -1,11 +1,12 @@
 import "../ItemLista.css";
 
-const ItemListaEditoras = ({ id, nome, telefone, rua, numero, cep,bairro, cidade, estado, alterarClick, excluirClick }) => {
+const ItemListaEditoras = ({ id, nome, telefone, email, rua, numero, cep,bairro, cidade, estado, alterarClick, excluirClick }) => {
     return (
         <tr>
             <td>{id}</td>
             <td>{nome}</td>
             <td>{telefone}</td>
+            <td>{email}</td>
             <td>{rua}</td>
             <td>{numero}</td>
             <td>{cep}</td>
@@ -15,7 +16,7 @@ const ItemListaEditoras = ({ id, nome, telefone, rua, numero, cep,bairro, cidade
 
 
 
-            <td class="text-center">
+            <td className="text-center">
                 <i className="exclui text-danger fw-bold" title="Excluir" onClick={excluirClick}>&#10008;</i>
                 <i className="altera text-success fw-bold ms-2" title="Alterar" onClick={alterarClick}>&#36;</i>
             </td>
