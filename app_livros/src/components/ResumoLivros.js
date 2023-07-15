@@ -58,8 +58,8 @@ const ResumoLivros = () => {
 
             <div className="d-flex justify-content-center">
                 <Chart
-                    width={'1000px'}
-                    height={'420px'}
+                    width={'1500px'}
+                    height={'500px'}
                     chartType="ColumnChart"
                     loader={<div>Carregando Gráfico...</div>}
                     data={grafico}
