@@ -33,7 +33,7 @@ const ResumoLivros = () => {
             <h4 className="mt-3">Resumo</h4>
             <span className="btn btn-outline-primary btn-lg">
                 <p className="badge bg-danger">
-                    {Number(resumo.num)}
+                    {(resumo.num)}
                 </p>
                 <p>N de livros cadastrados</p>
             </span>
