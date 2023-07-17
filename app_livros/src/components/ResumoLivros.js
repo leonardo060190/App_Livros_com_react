@@ -37,13 +37,13 @@ const ResumoLivros = () => {
                 </p>
                 <p>N de livros cadastrados</p>
             </span>
-            <span className="btn btn-outline-primary btn-lg mx-2">
+            <span className="btn btn-outline-primary btn-lg mx-5">
                 <p className="badge bg-danger">
                     {Number(resumo.soma).toLocaleString("pt-br", { minimumFractionDigits: 2 })}
                 </p>
                 <p>Total investido em livros</p>
             </span>
-            <span className="btn btn-outline-primary btn-lg me-2">
+            <span className="btn btn-outline-primary btn-lg me-5">
                 <p className="badge bg-danger">
                     {Number(resumo.maior).toLocaleString("pt-br", { minimumFractionDigits: 2 })}
                 </p>
